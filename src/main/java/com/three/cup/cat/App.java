@@ -5,9 +5,11 @@ import org.joda.time.DateTime;
 
 public class App {
     public static void main(String[] args) {
-        final FinancialStatementFeed feed = new FinancialStatementFeed();
+        final String stockSymbol = "2330"; 
         final DateTime date = new DateTime(2014, 12, 5, 0, 0);
-        feed.get("2330", date, true);
+        final boolean isConsolidated = true;
+        final FinancialStatementFeed feed = new FinancialStatementFeed(stockSymbol, date, isConsolidated);
+        feed.get();
     }
 
     private static final Logger logger = Logger.getLogger(App.class);
